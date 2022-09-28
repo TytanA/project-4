@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 import userService from "../../utils/userService";
-import { Navigate, useNavigate, Link } from "react-router-dom";
+import { Navigate, Link } from "react-router-dom";
 import { PinpointEmail } from "aws-sdk";
 
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
@@ -39,7 +39,7 @@ export default function SignUpPage(props) {
     }
     try {
       await userService.signup(formData);
-      props.handleSignUporLogin();
+      props.handleSignUpOrLogin();
       Navigate('/');
     } catch (err) {
       console.log(err)
@@ -105,6 +105,7 @@ export default function SignUpPage(props) {
               Signup
             </Button>
           </Segment>
+          {error.message ? <ErrorMessage error={error.message} /> : null}
         </Form>
         <Message>
           Already a member? <Link to='/login'>Login</Link>

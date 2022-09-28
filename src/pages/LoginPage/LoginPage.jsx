@@ -30,7 +30,8 @@ export default function LoginPage(props) {
       props.handleSignUpOrLogin();
       navigate('/')
     }catch(err){
-
+      console.log(err)
+      setError(err.message)
     }
 
 
@@ -45,6 +46,7 @@ export default function LoginPage(props) {
             <Form.Input
               fluid
               icon='user'
+              name='email'
               iconPosition='left'
               placeholder='E-mail address'
               onChange={handleChange} 
@@ -55,6 +57,7 @@ export default function LoginPage(props) {
               iconPosition='left'
               placeholder='Password'
               type='password'
+              name='password'
               onChange={handleChange}
               required/>
 
@@ -69,6 +72,7 @@ export default function LoginPage(props) {
         <Message>
           New to us? <Link to='/signup'>Sign Up</Link>
         </Message>
+        {error ? <ErrorMessage  error={error} /> : null}
       </Grid.Column>
     </Grid>
 

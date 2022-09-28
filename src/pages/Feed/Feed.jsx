@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import PageHeader from '../../components/Header/Header';
 import AddPost from '../../components/AddPost/AddPost'
 import PostGallery from '../../components/PostGallery/PostGallery'
+import ErrorMessage from '../../components/ErrorMessage/ErrorMessage'
 
 import {  Grid } from 'semantic-ui-react'
 
@@ -23,22 +24,31 @@ async function handleAddPost(post) {
     }
 }
 
+async function getPosts() {
+    try {
+      const response = await postsAPI.getAll();
+      console.log(response, " data");
+      setPosts([...response.data]);
+    } catch (err) {
+      console.log(err.message, " this is the error");
+    }
+  }
 
 useEffect(() => {
 
-    async function getPosts() {
-        try{
-            const response = await postsAPI.getAll();
-            setPosts([...response.data])
-            console.log('response')
-        }catch (err) {
-            console.log(err, "this is the error")
-        }
-    }
 
     getPosts();
     console.log("this is the useEffect firing")
 }, [])
+
+if (error){
+    return(
+        <>
+            <PageHeader handleLogout={handleLogout} loggedUser={loggedUser} />
+            <ErrorMessage error={error} />
+        </>
+    )
+}
 
 return (
     <Grid centered>

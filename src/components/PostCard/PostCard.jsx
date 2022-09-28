@@ -1,19 +1,17 @@
 import React from 'react'
-import { Card, Icon, Image } from 'semantic-ui-react'
+import { Card, Image } from 'semantic-ui-react'
 
 
-export default function PostCard({ posts }) {
+export default function PostCard({post, title, photoUrl}) {
   
   return(
-  <Card key={posts._id}>
-    <Image src={posts.photoURL} wrapped ui={false} />
+  <Card key={post._id}>
+    <Image src={photoUrl} wrapped ui={false} />
     <Card.Content>
-      <Card.Header></Card.Header>
+      <Card.Header>{title}</Card.Header>
       <Card.Meta>
-        <span className='date'>Joined in 2015</span>
       </Card.Meta>
       <Card.Description>
-        Matthew is a musician living in Nashville.
       </Card.Description>
     </Card.Content>
     <Card.Content extra>

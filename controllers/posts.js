@@ -23,7 +23,7 @@ function create(req, res) {
                 ingredients: req.body.ingredients,
                 directions: req.body.directions,
                 user: req.user,
-                photoUrl: data.location
+                photoUrl: data.Location
             })
             res.status(201).json({ data: post })
         }catch(err){
