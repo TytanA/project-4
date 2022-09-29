@@ -8,8 +8,33 @@ const BUCKET_NAME = process.env.AWS_BUCKET_NAME;
 module.exports = {
   create,
   index,
+  post,
+  deletePost
 };
 
+async function deletePost(req, res){
+    try {
+        const post = await Post.findOneAndDelete({_id: req.params.id, username: req.params.username})
+        await post.save()
+        res.json({data: 'post deleted'})
+    }catch(err){
+        console.log(err)
+        res.status(400).json({error: err})
+    }
+}
+
+async function post(req, res){
+    try{
+    console.log('post function in controller popping off')
+    const post = await Post.findOne({_id: req.params.id})
+    if(!post) return res.status(404).json({error: 'Post not found'})
+    res.status(200).json({ data: post })
+    } catch(err){
+        console.log(err, 'post controller error')
+        res.status(400).json({ error: 'Something went wrong'})
+    }
+
+}
 function create(req, res) {
     const key = `disasterdish/posts/${uuidv4()}-${req.file.originalname}`
     const params = { Bucket: BUCKET_NAME, Key: key, Body: req.file.buffer}

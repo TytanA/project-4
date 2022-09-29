@@ -5,6 +5,9 @@ import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import userService from "../../utils/userService";
 import FeedPage from '../Feed/Feed';
+import RecipePage from "../RecipePage/RecipePage";
+import ProfilePage from "../Profile/Profile";
+
 function App() {
   const [user, setUser] = useState(userService.getUser()); // getUser decodes our JWT token, into a javascript object
   // this object corresponds to the jwt payload which is defined in the server signup or login function that looks like
@@ -22,7 +25,9 @@ function App() {
   if (user) {
     return (
       <Routes>
+          <Route path="/:username" element={<ProfilePage loggedUser={user} handleLogout={handleLogout} />} />
         <Route path="/" element={<FeedPage loggedUser={user} handleLogout={handleLogout} />} />
+        <Route path='/posts/:id' element={<RecipePage loggedUser={user} handleLogout={handleLogout}/>} />
         <Route
           path="/login"
           element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}
