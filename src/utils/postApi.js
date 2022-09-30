@@ -22,10 +22,7 @@ export function deletePost(id){
         method: 'DELETE',
         headers: {
             'Authorization': 'Bearer ' + tokenService.getToken()
-    }}).then((res) => {
-        if (res.ok) return res.json();
-        throw new Error(res.error);
-    });
+    }})
 }
 
 export function getAll() {

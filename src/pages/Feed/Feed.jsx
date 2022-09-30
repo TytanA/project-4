@@ -19,6 +19,7 @@ export default function Feed({ loggedUser, handleLogout }) {
         try {
             const response = await postsAPI.create(post)
             setPosts([response.data, ...posts]);
+            getPosts()
         } catch (err) {
             setError('Error creating post, please try again')
         }
