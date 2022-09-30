@@ -27,7 +27,7 @@ export default function RecipePage({ loggedUser, handleLogout }) {
     
         }
 
-        getPost()
+        getPost(id)
     }, [id])
 
     return (

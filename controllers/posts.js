@@ -26,7 +26,7 @@ async function deletePost(req, res){
 async function post(req, res){
     try{
     console.log('post function in controller popping off')
-    const post = await Post.findOne({_id: req.params.id})
+    const post = await Post.findById(req.params.id)
     if(!post) return res.status(404).json({error: 'Post not found'})
     res.status(200).json({ data: post })
     } catch(err){
