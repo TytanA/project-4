@@ -14,6 +14,7 @@ export default function PageHeader({ loggedUser, handleLogout }) {
           Logout
         </Link>
       </Header>
+
       <Header as="h2" floated="left">
         <Link to={`/${loggedUser?.username}`}>
           <Image
@@ -25,6 +26,9 @@ export default function PageHeader({ loggedUser, handleLogout }) {
             avatar
           ></Image>
         </Link>
+      </Header>
+      <Header as='h1' textAlign='centered'>
+        Dish Disaster
       </Header>
     </Segment>
   );

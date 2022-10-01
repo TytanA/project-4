@@ -5,29 +5,40 @@ import { Card, Image } from 'semantic-ui-react'
 
 
 
-export default function PostCard({ link, title, photoUrl, loggedUser, username, id, handleDeletePost }) {
+export default function PostCard({ link, title, photoUrl, loggedUser, username, id, handleDeletePost, avatarImg }) {
 
   console.log(username)
   console.log(loggedUser.username)
 
-  return(
-  <Card key={id}>
-    <Image src={photoUrl} wrapped ui={false} />
-    <Card.Content>
-       <Link to={`/posts/${link}`} > 
-      <Card.Header>{title}</Card.Header>
-      </Link>
-      <Card.Meta>
-      </Card.Meta>
-      <Card.Description>
-      </Card.Description>
-    </Card.Content>
-    <Card.Content extra>
-    {loggedUser?.username === username
-                ? <DeleteButton id={id} handleDeletePost={handleDeletePost}/>
-                : ''
-            }
-    </Card.Content>
-  </Card>
+  return (
+    <Card key={id}>
+
+      <Image src={photoUrl} wrapped ui={false} />
+
+      <Card.Content>
+
+        <Card.Header>
+          <Link to={`/${username}`} >
+            <Image
+              size='large'
+              avatar
+              src={avatarImg} />
+          </Link>
+          <Link to={`/posts/${id}`}>
+            {title}
+          </Link>
+        </Card.Header>
+
+        <Card.Meta>
+        </Card.Meta>
+
+      </Card.Content>
+      <Card.Content extra>
+        {loggedUser?.username === username
+          ? <DeleteButton id={id} handleDeletePost={handleDeletePost} />
+          : ''
+        }
+      </Card.Content>
+    </Card>
   )
 }

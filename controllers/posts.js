@@ -15,8 +15,7 @@ module.exports = {
 async function deletePost(req, res){
     try {
         const post = await Post.findOneAndDelete({_id: req.params.id, username: req.params.username})
-        await post.save()
-        res.json({data: 'post deleted'})
+        res.json({})
     }catch(err){
         console.log(err)
         res.status(400).json({error: err})

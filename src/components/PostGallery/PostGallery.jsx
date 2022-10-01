@@ -18,6 +18,7 @@ return (
         loggedUser={loggedUser}
         username={post.user.username}
         handleDeletePost={handleDeletePost}
+        avatarImg={post.user.photoUrl}
         />
     )}
 
