@@ -33,7 +33,8 @@ export default function AddPost(props) {
     }
 
     return (
-        <Segment>
+        <Segment >
+            Add a Post
             <Form onSubmit={handleSubmit}>
                 <Form.Input
                     className="form-control"
