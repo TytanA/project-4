@@ -25,7 +25,7 @@ export default function ProfilePage({ loggedUser, handleLogout }) {
             setPosts(response.data.posts);
 
         } catch (err) {
-
+            setError(err)
         }
     }, [username]);
 

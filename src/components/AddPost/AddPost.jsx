@@ -23,13 +23,18 @@ export default function AddPost(props) {
 
     function handleSubmit(e) {
         e.preventDefault();
-        console.log('you are pressing the button')
         const formData = new FormData();
         formData.append('photo', selectedFile)
         for (let key in newPost) {
             formData.append(key, newPost[key])
         }
         props.handleAddPost(formData);
+        setNewPost({
+            title: '',
+            ingredients: '',
+            directions: ''
+        })
+        setSelectedFile('')
     }
 
     return (

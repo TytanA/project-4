@@ -1,39 +1,50 @@
-## Setup 
+# DishDisaster
 
-1. Clone the repo
-2. Rename the folder to your Project, you can use the `mv` command like `mv mern-boilerplate yourprojectname`
-3. Delete the `.git` file, when you are in the root of the file, you can press `ls` and you should see a `.git` file, then go ahead and run `rm -rf .git`
+### A Food Failure site
+
+This web application made for all your food mistakes and failures, uploading them for all to see.
+
+## Deployed Link:
+
+https://disasterdish.herokuapp.com/
+
+## Visuals
+
+![Landing Page not logged in/Login screen](https://i.imgur.com/yROtle4.png)
+![Logged in Landing Page](https://i.imgur.com/IQLlwlo.png)
+![Profile Page](https://i.imgur.com/lJ4fx1M.png)
+![Edit Session Page](https://i.imgur.com/wiwgn1Z.png)
+![Sign Up Page]()
+
+## Planned Improvements
+
+* Build recipe page for individual posts
+* Implement the edit function for posts
+* A lot more styling
+* Add a friends function and populate feed with only friends posts
+* chat function between friends
+  
+## Original Starting Documents
+![Wireframe](https://imgur.com/USzhjPc)
+![Trello Board](https://i.imgur.com/vFBljks.png)
+![ERD](https://i.imgur.com/mu4BoUa.png)
+
+## Technologies Used
+
+* node.js
+* CSS
+* HTML
+* Mongoose
+* Express
+* MongoDB
+* Heroku
+* React
+
+## Credits
+* My wonderful instructors
+* Insomnia and Engergy Drinks
+* Random Google searchs of food failures
 
 
-#### Setup your git repo
 
-1. go to github and create your github and create a repo (Without a readme or liscense you can add that later!)
-2.  Then follow the directions on github that says ```…or create a new repository on the command line```
 
-it should look like this
-
-```
-git init
-git add .
-git commit -m "first commit"
-git remote add origin git@git.generalassemb.ly:SEI-CC/test.git // this will be whatever your address will be
-git push -u origin master
-```
-
-#### Setup the App
-
-```npm install```
-
-*DOTENV*
-
-`touch .env`
-
-add your variables
-
-```
-DATABASE_URL=mongodb://localhost:27017/testagramV2
-BUCKET_NAME=catcollectorone
-SECRET=mysecretforjwt
-```
-
-The app is configured, to use those respective key names for the database, jwt secret and aws bucket, of course you'll have your own values
