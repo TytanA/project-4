@@ -18,6 +18,7 @@ export default function PostGallery({ posts, loggedUser, handleDeletePost }) {
                         username={post.user.username}
                         handleDeletePost={handleDeletePost}
                         avatarImg={post.user.photoUrl}
+                        id={post._id}
                     />
                 )
             }
