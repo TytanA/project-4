@@ -10,11 +10,10 @@ https://disasterdish.herokuapp.com/
 
 ## Visuals
 
-![Landing Page not logged in/Login screen](https://i.imgur.com/yROtle4.png)
-![Logged in Landing Page](https://i.imgur.com/IQLlwlo.png)
-![Profile Page](https://i.imgur.com/lJ4fx1M.png)
-![Edit Session Page](https://i.imgur.com/wiwgn1Z.png)
-![Sign Up Page]()
+![Landing Page not logged in/Login screen](https://i.imgur.com/USzhjPc.png)
+![Logged in Landing Page](https://i.imgur.com/YhJg58P.png)
+![Profile Page](https://i.imgur.com/AOrqDhL.png)
+![Sign Up Page](https://i.imgur.com/QscUUfI.png)
 
 ## Planned Improvements
 
@@ -25,9 +24,9 @@ https://disasterdish.herokuapp.com/
 * chat function between friends
   
 ## Original Starting Documents
-![Wireframe](https://imgur.com/USzhjPc)
-![Trello Board](https://i.imgur.com/vFBljks.png)
-![ERD](https://i.imgur.com/mu4BoUa.png)
+![Wireframe](https://i.imgur.com/agym7vw.png)
+![Trello Board](https://i.imgur.com/FTGI4VL.png)
+![ERD](https://i.imgur.com/0ah6EHu.png)
 
 ## Technologies Used
 
