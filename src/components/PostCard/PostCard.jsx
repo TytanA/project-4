@@ -5,7 +5,7 @@ import { Card, Image } from 'semantic-ui-react'
 
 
 
-export default function PostCard({  title, photoUrl, loggedUser, username, id, handleDeletePost, avatarImg }) {
+export default function PostCard({ title, photoUrl, loggedUser, username, id, handleDeletePost, avatarImg }) {
 
   console.log(username)
   console.log(loggedUser.username)
@@ -25,7 +25,7 @@ export default function PostCard({  title, photoUrl, loggedUser, username, id, h
               src={avatarImg} />
           </Link>
 
-            {title}
+          {title}
         </Card.Header>
 
         <Card.Meta>

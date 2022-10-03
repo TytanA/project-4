@@ -2,18 +2,18 @@
 import React from 'react'
 import { Button } from 'semantic-ui-react'
 
-export default function Deletebutton({ handleDeletePost, id }){
+export default function Deletebutton({ handleDeletePost, id }) {
 
-    function handleClick(e){
+    function handleClick(e) {
         e.preventDefault();
         handleDeletePost(id);
-    } 
+    }
 
-    return(
-    
+    return (
+
         <Button onClick={handleClick} className="btn">
             Delete
         </Button>
-    
+
     )
 }

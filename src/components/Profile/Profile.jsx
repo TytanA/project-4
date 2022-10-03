@@ -6,11 +6,10 @@ export default function Profile({ user }) {
       <Grid.Row>
         <Grid.Column>
           <Image
-            src={`${
-              user.photoUrl
+            src={`${user.photoUrl
                 ? user.photoUrl
                 : "https://react.semantic-ui.com/images/wireframe/square-image.png"
-            } `}
+              } `}
             avatar
             size="small"
           />

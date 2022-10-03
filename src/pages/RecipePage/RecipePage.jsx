@@ -24,7 +24,7 @@ export default function RecipePage({ loggedUser, handleLogout }) {
             } catch (err) {
                 console.log(err)
             }
-    
+
         }
 
         getPost(id)

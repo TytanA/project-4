@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 import userService from "../../utils/userService";
-import { Navigate, Link } from "react-router-dom";
-import { PinpointEmail } from "aws-sdk";
+import {  Link, useNavigate } from "react-router-dom";
+
 
 import { Button, Form, Grid, Header, Message, Segment } from 'semantic-ui-react'
 
@@ -12,6 +12,7 @@ export default function SignUpPage(props) {
     message: '',
     passwordError: false
   });
+
   const [state, setState] = useState({
     username: '',
     email: '',
@@ -20,7 +21,7 @@ export default function SignUpPage(props) {
   })
   const [selectedFile, setSelectedFile] = useState('');
 
-
+  const navigate = useNavigate();
 
   function handleChange(e) {
     setState({
@@ -40,7 +41,7 @@ export default function SignUpPage(props) {
     try {
       await userService.signup(formData);
       props.handleSignUpOrLogin();
-      Navigate('/');
+      navigate('/');
     } catch (err) {
       console.log(err)
       setError({ message: err.message })
@@ -55,63 +56,63 @@ export default function SignUpPage(props) {
 
   return (
     <>
-    <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
-      <Grid.Column style={{ maxWidth: 450 }}>
-        <Header as='h2' color='teal' textAlign='center'>
-          Signup for your account
-        </Header>
-        <Form size='large' onSubmit={handleSubmit}>
-          <Segment stacked>
-            <Form.Input
-              name='username'
-              placeholder='username'
-              value={state.username}
-              onChange={handleChange}
-              required />
-            <Form.Input
-              name='email'
-              placeholder='email'
-              value={state.email}
-              onChange={handleChange}
-              required />
-            <Form.Input
-              icon='lock'
-              iconPosition='left'
-              name='password'
-              placeholder='password'
-              value={state.password}
-              onChange={handleChange}
-              type='password'
-              required />
-            <Form.Input
-              icon='lock'
-              iconPosition='left'
-              name='passwordConf'
-              placeholder='Confirm Password'
-              value={state.passwordConf}
-              onChange={handleChange}
-              type='password'
-              required />
-            <Form.Field>
-              <label>Upload a Profile Picture</label>
+      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+        <Grid.Column style={{ maxWidth: 450 }}>
+          <Header as='h2' color='teal' textAlign='center'>
+            Signup for your account
+          </Header>
+          <Form size='large' onSubmit={handleSubmit}>
+            <Segment stacked>
               <Form.Input
-                type='file'
-                name='photo'
-                placeholder='upload image'
-                onChange={handleFileInput}
-              />
-            </Form.Field>
-            <Button type='submit' color='teal' fluid size='large'>
-              Signup
-            </Button>
-          </Segment>
-          {error.message ? <ErrorMessage error={error.message} /> : null}
-        </Form>
-        <Message>
-          Already a member? <Link to='/login'>Login</Link>
-        </Message>
-      </Grid.Column>
-    </Grid>
+                name='username'
+                placeholder='username'
+                value={state.username}
+                onChange={handleChange}
+                required />
+              <Form.Input
+                name='email'
+                placeholder='email'
+                value={state.email}
+                onChange={handleChange}
+                required />
+              <Form.Input
+                icon='lock'
+                iconPosition='left'
+                name='password'
+                placeholder='password'
+                value={state.password}
+                onChange={handleChange}
+                type='password'
+                required />
+              <Form.Input
+                icon='lock'
+                iconPosition='left'
+                name='passwordConf'
+                placeholder='Confirm Password'
+                value={state.passwordConf}
+                onChange={handleChange}
+                type='password'
+                required />
+              <Form.Field>
+                <label>Upload a Profile Picture</label>
+                <Form.Input
+                  type='file'
+                  name='photo'
+                  placeholder='upload image'
+                  onChange={handleFileInput}
+                />
+              </Form.Field>
+              <Button type='submit' color='teal' fluid size='large'>
+                Signup
+              </Button>
+            </Segment>
+            {error.message ? <ErrorMessage error={error.message} /> : null}
+          </Form>
+          <Message>
+            Already a member? <Link to='/login'>Login</Link>
+          </Message>
+        </Grid.Column>
+      </Grid>
     </>
   );
 }

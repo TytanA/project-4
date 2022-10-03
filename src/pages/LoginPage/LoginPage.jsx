@@ -24,12 +24,12 @@ export default function LoginPage(props) {
 
   async function handleSubmit(e) {
     e.preventDefault();
-    
-    try{
+
+    try {
       await userService.login(state);
       props.handleSignUpOrLogin();
       navigate('/')
-    }catch(err){
+    } catch (err) {
       console.log(err)
       setError(err.message)
     }
@@ -49,8 +49,8 @@ export default function LoginPage(props) {
               name='email'
               iconPosition='left'
               placeholder='E-mail address'
-              onChange={handleChange} 
-              required/>
+              onChange={handleChange}
+              required />
             <Form.Input
               fluid
               icon='lock'
@@ -59,7 +59,7 @@ export default function LoginPage(props) {
               type='password'
               name='password'
               onChange={handleChange}
-              required/>
+              required />
 
             <Button
               type='submit'
@@ -72,7 +72,7 @@ export default function LoginPage(props) {
         <Message>
           New to us? <Link to='/signup'>Sign Up</Link>
         </Message>
-        {error ? <ErrorMessage  error={error} /> : null}
+        {error ? <ErrorMessage error={error} /> : null}
       </Grid.Column>
     </Grid>
 
