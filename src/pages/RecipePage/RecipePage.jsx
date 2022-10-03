@@ -11,7 +11,6 @@ export default function RecipePage({ loggedUser, handleLogout }) {
     const [post, setPost] = useState({})
 
     const { id } = useParams();
-    console.log(id)
 
 
 
@@ -22,7 +21,7 @@ export default function RecipePage({ loggedUser, handleLogout }) {
                 const response = await postApis.getPost(id)
                 setPost(response)
             } catch (err) {
-                console.log(err)
+
             }
 
         }

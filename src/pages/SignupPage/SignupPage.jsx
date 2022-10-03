@@ -43,13 +43,13 @@ export default function SignUpPage(props) {
       props.handleSignUpOrLogin();
       navigate('/');
     } catch (err) {
-      console.log(err)
+
       setError({ message: err.message })
     }
   }
 
   function handleFileInput(e) {
-    console.log(e.target.files, '<-this is the uploading file')
+
     setSelectedFile(e.target.files[0]);
   }
 

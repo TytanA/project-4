@@ -17,19 +17,16 @@ async function deletePost(req, res) {
         const post = await Post.findOneAndDelete({ _id: req.params.id, username: req.params.username })
         res.json({})
     } catch (err) {
-        console.log(err)
         res.status(400).json({ error: err })
     }
 }
 
 async function post(req, res) {
     try {
-        console.log('post function in controller popping off')
         const post = await Post.findById(req.params.id)
         if (!post) return res.status(404).json({ error: 'Post not found' })
         res.status(200).json({ data: post })
     } catch (err) {
-        console.log(err, 'post controller error')
         res.status(400).json({ error: 'Something went wrong' })
     }
 

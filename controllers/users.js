@@ -28,12 +28,10 @@ async function profile(req, res) {
       }
     })
   } catch (err) {
-    console.log(err)
     res.status(400).json({ error: 'Something went wrong' })
   }
 }
 async function signup(req, res) {
-  console.log(req.body, " req.body in signup", req.file);
 
   if (!req.file) return res.status(400).json({ error: "Please submit Photo!" });
   // Create the key that we will store in the s3 bucket name
@@ -43,11 +41,7 @@ async function signup(req, res) {
   const params = { Bucket: BUCKET_NAME, Key: key, Body: req.file.buffer };
 
   s3.upload(params, async function (err, data) {
-    // this function is called when we get a response from AWS
-    // inside of the callback is a response from AWS!
-    console.log("========================");
-    console.log(err, " <--- err from aws");
-    console.log("========================");
+
     if (err)
       return res.status(400).json({
         err: "Error from aws, check the server terminal!, you bucket name or keys are probley wrong",
@@ -63,7 +57,7 @@ async function signup(req, res) {
       // res.json({ token: token })
     } catch (err) {
       if (err.name === "MongoServerError" && err.code === 11000) {
-        console.log(err.message, "err.message");
+
         res
           .status(423)
           .json({
@@ -85,7 +79,7 @@ async function signup(req, res) {
 async function login(req, res) {
   try {
     const user = await User.findOne({ email: req.body.email });
-    console.log(user, ' this user in login')
+
     if (!user) return res.status(401).json({ err: 'bad credentials' });
     // had to update the password from req.body.pw, to req.body password
     user.comparePassword(req.body.password, (err, isMatch) => {

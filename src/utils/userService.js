@@ -31,7 +31,7 @@ function signup(user) {
 
       //     res.status(400).json({ err: "Something went wrong" }); notice err, and response.err match
       return res.json().then(response => {
-        console.log(response)
+
         throw new Error(response.err)
       })
     })
@@ -61,7 +61,7 @@ function login(creds) {
       // Valid login if we have a status of 2xx (res.ok)
       if (res.ok) return res.json();
       return res.json().then(response => {
-        console.log(response)
+
         throw new Error(response.err)
       })
     })

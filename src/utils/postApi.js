@@ -33,7 +33,7 @@ export function getAll() {
         }
     }).then((res) => {
         if (res.ok) {
-            console.log(res)
+
             return res.json();
 
         }
@@ -42,7 +42,7 @@ export function getAll() {
 }
 
 export function getPost(id) {
-    console.log('getPost')
+
     return fetch(`${BASE_URL}/${id}`, {
         headers: {
             'Authorization': 'Bearer ' + tokenService.getToken()

@@ -7,8 +7,7 @@ import { Card, Image } from 'semantic-ui-react'
 
 export default function PostCard({ title, photoUrl, loggedUser, username, id, handleDeletePost, avatarImg }) {
 
-  console.log(username)
-  console.log(loggedUser.username)
+
 
   return (
     <Card key={id}>

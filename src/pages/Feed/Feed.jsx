@@ -30,10 +30,10 @@ export default function Feed({ loggedUser, handleLogout }) {
     async function getPosts() {
         try {
             const response = await postsAPI.getAll();
-            console.log(response, " data");
+
             setPosts([...response.data]);
         } catch (err) {
-            console.log(err.message, " this is the error");
+
         }
     }
 
@@ -41,16 +41,16 @@ export default function Feed({ loggedUser, handleLogout }) {
 
 
         getPosts();
-        console.log("this is the useEffect firing")
+
     }, [])
 
     async function handleDeletePost(id) {
         try {
             const response = await postsAPI.deletePost(id);
-            console.log(response, 'deleted post')
+
             getPosts()
         } catch (err) {
-            console.log(err)
+
         }
     }
 

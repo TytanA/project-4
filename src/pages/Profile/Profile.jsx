@@ -15,7 +15,7 @@ export default function ProfilePage({ loggedUser, handleLogout }) {
     const [error, setError] = useState('')
 
     const { username } = useParams();
-    console.log(username)
+
 
     const getProfile = useCallback(async () => {
         try {
@@ -30,7 +30,7 @@ export default function ProfilePage({ loggedUser, handleLogout }) {
     }, [username]);
 
     useEffect(() => {
-        console.log('profile page use effect')
+
         getProfile();
     }, [username, getProfile])
 
@@ -38,7 +38,7 @@ export default function ProfilePage({ loggedUser, handleLogout }) {
     async function handleDeletePost(id) {
         try {
             const response = await postsAPI.deletePost(id);
-            console.log(response, 'deleted post')
+
             getProfile();
         } catch (err) {
             console.log(err)
